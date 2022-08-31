@@ -10,151 +10,155 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	min-height: 100vh;
 	font-family: sans-serif;
 	background-color: #d5e1ef;
 }
 
 .attribution {
+	margin-top: 10px;
 	font-size: 11px;
 	text-align: center;
-	margin: 20px 0;
+	color: white;
 	font-size: 8px;
 
 	a {
-		color: hsl(228, 45%, 44%);
+		color: orange;
 	}
 }
 
 .card {
-	width: 350px;
-	height: 600px;
-	background: white;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: repeat(8, 1fr);
-	border-radius: 30px;
-	overflow: hidden;
+	padding: 20px;
+	width: 250px;
+	background: linear-gradient(#374353, #1e2734);
+	border-radius: 20px;
+}
 
-	&__photo {
-		grid-row: 1/4;
-		grid-column: 1/2;
-		background-image: url('../images/image-product-mobile.jpg');
-		background-position: center;
-		background-size: cover;
+.front {
+	display: block;
+}
+
+.top-front {
+	&__star-box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.2);
 	}
 
-	&__type {
-		grid-row: 4/5;
-		margin-top: 20px;
-		padding: 5px 20px;
-		text-transform: uppercase;		
-		letter-spacing: 4px;
-		color: rgb(134, 134, 134);
+	&__star {
+		color: orange;
+		font-size: 0.8rem;
 	}
 
 	&__title {
-		grid-row: 5/6;
-		padding: 0 20px;
-		font-family: Georgia, 'Times New Roman', Times, serif;
-		font-size: 1.8em;
+		margin: 10px 0;
+		color: white;
+		font-size: 1.2rem;
 	}
 
 	&__text {
-		grid-row: 6/7;
-		margin-top: 10px;
-		padding: 10px 20px;
-		color: rgb(134, 134, 134);
-		font-size: 15px;
+		color: #979ea8;
+		font-size: 0.6rem;
+	}
+}
+
+.bottom-front {
+	&__box-btns {
+		margin: 10px 0;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
 	}
 
-	&__prices {
-		position: relative;
+	&__btn-item {
+		margin: 10px 0;
+		width: 30px;
+		height: 30px;
+		color: #979ea8;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		border: none;
+		cursor: pointer;
+		transition: background 0.3s, color 0.3s;
 	}
 
-	&__price {
-		grid-row: 7/8;
-		padding: 0 20px;
-		font-family: Georgia, 'Times New Roman', Times, serif;
-		font-size: 2em;
-		font-weight: bold;
-		color: rgb(97, 159, 137);
+	&__btn-item:hover {
+		color: white;
+		background: orange;
 	}
-
-	&__price::after {
-		position: absolute;
-		top: 10px;
-		left: 170px;
-		content: '$169.99';
-		padding: 0px;
-		font-family: sans-serif;
-		font-size: 0.4em;
-		text-decoration: line-through;
-		font-weight: normal;
-		color: rgb(134, 134, 134);
+	&__btn-item:focus {
+		color: orange;
+		background: rgba(255, 255, 255, 0.8);
 	}
 
 	&__btn {
-		grid-row: 8/9;
-		margin: 20px 20px;
-		height: 60px;
-		background-color: rgb(97, 159, 137);
-		border: none;
-		border-radius: 8px;
+		padding: 8px;
+		width: 100%;
+		text-transform: uppercase;
 		color: white;
-		font-weight: bold;
-		transition: background-color 0.3s;
+		background-color: orange;
+		border: none;
+		border-radius: 20px;
+		cursor: pointer;
+		transition: background 0.3s, color 0.3s;
 	}
 
 	&__btn:hover {
-		background-color: rgb(48, 81, 70);
+		color: orange;
+		background-color: white;
+	}
+
+	&__error {
+		display: none;
+		margin-top: 10px;
+		text-align: center;
+		font-size: .6rem;
+		color: red;
+	}
+}
+
+.opposite {
+	display: none;
+}
+
+.top-opposite {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__img {
+		margin: 10px auto;
+		height: 70px;
+	}
+
+	&__result {
+		margin: 10px 0;
+		padding: 5px 10px;
+		color: orange;
+		background: rgba(255, 255, 255, 0.2);
+		font-size: 0.6rem;
+		border-radius: 10px;
+	}
+}
+
+.bottom-opposite {
+	&__title {
+		text-align: center;
+		color: white;
+		font-size: 1.2rem;
+	}
+
+	&__text {
+		margin-top: 10px;
+		text-align: center;
+		color: #979ea8;
+		font-size: 0.6rem;
 	}
 }
 
 @media (min-width: 768px) {
-	.card {
-		width: 800px;
-		grid-template-columns: repeat(2, 1fr);
-
-		&__photo {
-			grid-column: 1/2;
-			grid-row: 1/10;
-			background-image: url('../images/image-product-desktop.jpg');
-		}
-
-		&__type {
-			grid-column: 2/3;
-			grid-row: 1/2;
-		}
-
-		&__title {
-			grid-column: 2/3;
-			grid-row: 2/4;
-			margin: 0;
-			font-size: 45px;
-		}
-
-		&__text {
-			grid-column: 2/3;
-			grid-row: 4/7;
-			margin: 30px 0;
-			padding: 20px;
-			font-size: 24px;
-		}
-
-		&__price {
-			grid-column: 2/3;
-			grid-row: 7/8;
-			font-size: 46px;
-		}
-
-		&__price::after {
-			left: 240px;
-		}
-
-		&__btn {
-			grid-column: 2/3;
-			grid-row: 8/9;
-		}
-	}
 }
